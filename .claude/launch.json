@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Affinity Neurocare",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/amummaneni/Desktop/Codex/Projects/affinityneurocare"],
+      "port": 5173
+    }
+  ]
+}

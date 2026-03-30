@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Affinity Neurocare — Design B: Bold Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0A0A0A;
+  --red: #C8102E;
+  --red-dark: #9E0D24;
+  --cream: #FAF8F5;
+  --warm: #F0EDE8;
+  --muted: #6B6B6B;
+  --border: #E0DDD8;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: 'Outfit', sans-serif; border: none; }
+
+/* NAVBAR */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 72px;
+  background: var(--ink); border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem; letter-spacing: 0.08em; color: white;
+  display: flex; align-items: center; gap: 12px;
+}
+.nav-logo-line {
+  width: 3px; height: 28px; background: var(--red);
+}
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: white; }
+.nav-cta {
+  background: var(--red); color: white; font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 24px;
+  border-radius: 2px; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--red-dark); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; background: var(--ink);
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 72px; overflow: hidden; position: relative;
+}
+.hero-left {
+  padding: 80px 48px 80px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--red); color: white;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 16px; margin-bottom: 40px; align-self: flex-start;
+}
+.hero-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 10vw, 10rem);
+  line-height: 0.85;
+  color: white;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+.hero-num span { color: var(--red); }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: white; letter-spacing: 0.04em;
+  line-height: 1; margin-bottom: 32px; margin-top: 8px;
+}
+.hero-desc {
+  font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.75;
+  max-width: 420px; margin-bottom: 40px;
+  border-left: 2px solid var(--red); padding-left: 20px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-red {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--red); color: white;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 16px 32px; border-radius: 2px; transition: all 0.2s;
+}
+.btn-red:hover { background: var(--red-dark); transform: translateY(-2px); }
+.btn-white-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: white;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 15px 32px; border-radius: 2px; border: 1.5px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+}
+.btn-white-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+.hero-right {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+}
+.hero-right-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0;
+}
+/* Large decorative number */
+.hero-deco-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22rem; line-height: 0.8;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none; user-select: none;
+  position: absolute;
+}
+.hero-stat-stack {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; gap: 2px; width: 100%;
+}
+.hero-stat-row {
+  display: flex; align-items: stretch;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 48px;
+  transition: background 0.2s;
+}
+.hero-stat-row:hover { background: rgba(255,255,255,0.03); }
+.hero-stat-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.hero-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; color: var(--red); letter-spacing: 0.02em;
+  line-height: 1; min-width: 120px;
+}
+.hero-stat-info { display: flex; flex-direction: column; justify-content: center; }
+.hero-stat-label { font-size: 0.78rem; font-weight: 700; color: white; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+.hero-stat-sub { font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.4; }
+
+/* MARQUEE STRIP */
+.marquee-strip {
+  background: var(--red); overflow: hidden;
+  padding: 14px 0; border-top: 0; border-bottom: 0;
+}
+.marquee-inner {
+  display: flex; gap: 0; white-space: nowrap;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+.marquee-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem; letter-spacing: 0.12em; color: white;
+  padding: 0 40px; display: flex; align-items: center; gap: 40px;
+}
+.marquee-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* SERVICES */
+.services {
+  padding: 100px 80px; background: var(--cream);
+}
+.services-top {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 60px; gap: 40px;
+}
+.services-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.services-label::before { content: ''; width: 28px; height: 2px; background: var(--red); }
+.services-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  letter-spacing: 0.03em; line-height: 0.9;
+  color: var(--ink);
+}
+.services-desc { max-width: 360px; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; border: 1px solid var(--border);
+}
+.service-cell {
+  padding: 36px 28px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+  cursor: default;
+}
+.service-cell:nth-child(4n) { border-right: none; }
+.service-cell:nth-last-child(-n+4) { border-bottom: none; }
+.service-cell::after {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 0; height: 2px; background: var(--red);
+  transition: width 0.35s ease;
+}
+.service-cell:hover { background: var(--warm); }
+.service-cell:hover::after { width: 100%; }
+.service-icon-wrap {
+  font-size: 1.8rem; margin-bottom: 16px;
+}
+.service-cell h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--ink); margin-bottom: 10px;
+}
+.service-cell p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+.service-num {
+  position: absolute; top: 20px; right: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem; color: rgba(0,0,0,0.04);
+  line-height: 1; font-weight: 400;
+}
+
+/* ABOUT */
+.about {
+  padding: 100px 80px;
+  background: var(--ink);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: center;
+}
+.about-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.about-label::before { content: ''; width: 28px; height: 2px; background: var(--red); }
+.about-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  letter-spacing: 0.03em; line-height: 0.9;
+  color: white; margin-bottom: 32px;
+}
+.about-h2 span { color: var(--red); }
+.about-desc { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 40px; }
+.about-facts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
+}
+.about-fact {
+  background: rgba(255,255,255,0.02);
+  padding: 24px 20px;
+}
+.about-fact .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem; color: var(--red); line-height: 1;
+}
+.about-fact .lbl { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+.about-right-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 48px;
+}
+.about-right-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem; letter-spacing: 0.04em; color: white;
+  margin-bottom: 4px;
+}
+.about-right-card .cred {
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 28px;
+}
+.about-quote-card {
+  border-left: 3px solid var(--red);
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.03);
+  margin-bottom: 28px;
+}
+.about-quote-card p {
+  font-size: 1.05rem; color: rgba(255,255,255,0.75); line-height: 1.7;
+  font-style: italic;
+}
+.about-staff-list { display: flex; flex-direction: column; gap: 10px; }
+.about-staff-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.about-staff-item:last-child { border-bottom: none; }
+.staff-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+.staff-name { font-size: 0.88rem; font-weight: 600; color: white; }
+.staff-role { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-left: auto; }
+
+/* TESTIMONIALS */
+.reviews { padding: 100px 80px; background: var(--warm); }
+.reviews-top {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 60px;
+}
+.reviews-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.reviews-label::before { content: ''; width: 28px; height: 2px; background: var(--red); }
+.reviews-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  letter-spacing: 0.03em; line-height: 0.9; color: var(--ink);
+}
+.reviews-rating {
+  text-align: right;
+}
+.reviews-rating .score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem; color: var(--ink); line-height: 1;
+}
+.reviews-rating .out { font-size: 1rem; color: var(--muted); }
+.reviews-rating .stars { font-size: 1.2rem; color: var(--red); letter-spacing: 2px; }
+
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review-card {
+  background: white; padding: 32px; border-bottom: 3px solid transparent;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.review-card:hover { border-color: var(--red); transform: translateY(-4px); }
+.review-stars { font-size: 0.9rem; color: var(--red); letter-spacing: 2px; margin-bottom: 16px; }
+.review-text {
+  font-size: 0.92rem; color: var(--ink); line-height: 1.7;
+  margin-bottom: 20px; font-style: italic;
+}
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-av {
+  width: 36px; height: 36px; border-radius: 0;
+  background: var(--ink); display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem; font-weight: 700; color: white;
+}
+.review-name { font-size: 0.85rem; font-weight: 700; color: var(--ink); }
+.review-date { font-size: 0.75rem; color: var(--muted); }
+
+/* CTA */
+.cta-banner {
+  background: var(--red); padding: 80px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.cta-banner h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  letter-spacing: 0.03em; color: white; line-height: 0.9;
+}
+.cta-banner h2 span { color: rgba(255,255,255,0.4); }
+.cta-banner-actions { display: flex; gap: 16px; flex-wrap: wrap; flex-shrink: 0; }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: white; color: var(--red);
+  font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 18px 36px; border-radius: 2px; transition: all 0.2s;
+}
+.btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+.btn-outline-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: white;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 17px 36px; border-radius: 2px; border: 2px solid rgba(255,255,255,0.4);
+  transition: all 0.2s;
+}
+.btn-outline-white:hover { border-color: white; }
+
+/* CONTACT */
+.contact {
+  padding: 100px 80px; background: var(--cream);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.contact-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.contact-label::before { content: ''; width: 28px; height: 2px; background: var(--red); }
+.contact-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  letter-spacing: 0.03em; line-height: 0.95; color: var(--ink); margin-bottom: 40px;
+}
+.contact-items { display: flex; flex-direction: column; gap: 0; }
+.contact-item {
+  padding: 24px 0; border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.contact-item:first-child { border-top: 1px solid var(--border); }
+.contact-item-icon {
+  font-size: 1.3rem; width: 36px; flex-shrink: 0; padding-top: 2px;
+}
+.contact-item-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 4px;
+}
+.contact-item-value { font-size: 0.95rem; color: var(--ink); font-weight: 500; line-height: 1.5; }
+.contact-right {
+  background: var(--ink); padding: 48px; color: white;
+}
+.contact-right h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem; letter-spacing: 0.04em; color: white; margin-bottom: 24px;
+}
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.contact-form input, .contact-form select {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0; padding: 14px 18px;
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+  color: white; outline: none; transition: border-color 0.2s;
+}
+.contact-form input::placeholder { color: rgba(255,255,255,0.3); }
+.contact-form input:focus, .contact-form select:focus { border-color: var(--red); }
+.contact-form select { color: rgba(255,255,255,0.6); }
+.contact-form select option { background: #1a1a1a; color: white; }
+.contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-submit {
+  background: var(--red); color: white;
+  font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 16px; border: none; border-radius: 0;
+  cursor: pointer; transition: background 0.2s; width: 100%;
+}
+.contact-submit:hover { background: var(--red-dark); }
+
+/* FOOTER */
+footer {
+  background: #050505; padding: 40px 80px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem; letter-spacing: 0.08em; color: white;
+}
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.footer-links a:hover { color: white; }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal {
+  background: var(--cream); width: 100%; max-width: 620px;
+  max-height: 90vh; overflow-y: auto;
+  animation: slideIn 0.3s ease;
+}
+@keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-head {
+  background: var(--ink); padding: 32px 36px 28px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+}
+.modal-head-left {}
+.modal-head-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 8px;
+}
+.modal-head-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; letter-spacing: 0.04em; color: white; line-height: 1;
+}
+.modal-close-btn {
+  width: 36px; height: 36px; background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6); font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; border: none; flex-shrink: 0;
+  transition: background 0.2s;
+}
+.modal-close-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+.modal-progress {
+  height: 3px; background: rgba(255,255,255,0.08);
+  position: relative; overflow: hidden;
+}
+.modal-progress-fill {
+  position: absolute; top: 0; left: 0; bottom: 0;
+  background: var(--red); transition: width 0.4s ease;
+}
+.modal-steps-bar {
+  display: flex; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.modal-step-tab {
+  flex: 1; padding: 12px 8px; text-align: center;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); border-right: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s;
+}
+.modal-step-tab:last-child { border-right: none; }
+.modal-step-tab.active { color: white; }
+.modal-step-tab.done { color: var(--red); }
+.modal-body { padding: 36px; }
+.modal-section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 20px;
+}
+.svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+.svc-opt {
+  padding: 14px 16px; border: 1.5px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.88rem; font-weight: 500; color: var(--ink);
+  cursor: pointer; transition: all 0.2s; background: white;
+}
+.svc-opt:hover { border-color: var(--red); }
+.svc-opt.sel { border-color: var(--red); background: rgba(200,16,46,0.05); }
+.loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+.loc-opt {
+  padding: 18px; border: 1.5px solid var(--border);
+  cursor: pointer; transition: all 0.2s; background: white;
+}
+.loc-opt:hover { border-color: var(--red); }
+.loc-opt.sel { border-color: var(--red); background: rgba(200,16,46,0.03); }
+.loc-opt h4 { font-size: 0.88rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.loc-opt p { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+.cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.cal-header h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.04em; }
+.cal-nav {
+  width: 32px; height: 32px; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 0.9rem; transition: all 0.2s; background: none;
+}
+.cal-nav:hover { border-color: var(--red); color: var(--red); }
+.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; margin-bottom: 20px; }
+.cal-day-name { text-align: center; font-size: 0.68rem; font-weight: 600; color: var(--muted); padding: 6px 0; }
+.cal-day {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem; cursor: pointer; transition: all 0.15s;
+  font-weight: 500; color: var(--ink);
+}
+.cal-day:hover:not(.past):not(.empty) { background: var(--red); color: white; }
+.cal-day.sel { background: var(--ink); color: white; }
+.cal-day.today { outline: 2px solid var(--red); outline-offset: -2px; }
+.cal-day.past { color: var(--border); cursor: not-allowed; }
+.time-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; margin-bottom: 24px; }
+.time-opt {
+  padding: 10px 6px; border: 1.5px solid var(--border);
+  text-align: center; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; transition: all 0.15s; background: white;
+}
+.time-opt:hover { border-color: var(--red); color: var(--red); }
+.time-opt.sel { background: var(--ink); color: white; border-color: var(--ink); }
+.time-opt.unavail { opacity: 0.3; cursor: not-allowed; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+.form-group label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink); }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 12px 14px; border: 1.5px solid var(--border);
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: var(--ink);
+  background: white; outline: none; transition: border-color 0.2s; border-radius: 0;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--red); }
+.form-group textarea { min-height: 80px; resize: vertical; }
+.confirm-table { border: 1px solid var(--border); margin-bottom: 20px; }
+.confirm-row-item {
+  display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.confirm-row-item:last-child { border-bottom: none; }
+.confirm-row-item:nth-child(odd) { background: var(--warm); }
+.confirm-icon { font-size: 1rem; width: 24px; }
+.confirm-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); width: 80px; flex-shrink: 0; }
+.confirm-val { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+.modal-footer-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-top: 20px; border-top: 1px solid var(--border); margin-top: 8px;
+}
+.btn-back-modal {
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); background: none; border: none; cursor: pointer; transition: color 0.2s;
+}
+.btn-back-modal:hover { color: var(--ink); }
+.btn-modal-next {
+  background: var(--red); color: white;
+  font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 14px 32px; border: none; cursor: pointer; transition: background 0.2s;
+}
+.btn-modal-next:hover { background: var(--red-dark); }
+.btn-modal-next:disabled { opacity: 0.4; cursor: not-allowed; }
+.success-box { text-align: center; padding: 20px 0; }
+.success-icon { font-size: 3rem; margin-bottom: 20px; }
+.success-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.04em; margin-bottom: 12px; }
+.success-box p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 380px; margin: 0 auto 24px; }
+
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 400px; }
+  .about { grid-template-columns: 1fr; gap: 48px; }
+  .contact { grid-template-columns: 1fr; gap: 48px; }
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+  .cta-banner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .services { padding: 60px 24px; }
+  .about { padding: 60px 24px; }
+  .reviews { padding: 60px 24px; }
+  .cta-banner { padding: 60px 24px; }
+  .contact { padding: 60px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .hero-left { padding: 60px 24px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .time-grid { grid-template-columns: repeat(3,1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-line"></div>
+    AFFINITY NEUROCARE
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="openModal()">Book Appointment</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span>★</span> DFW's #1 Neurologist
+    </div>
+    <div class="hero-num">#<span>1</span></div>
+    <div class="hero-title">Neurologist<br>in DFW</div>
+    <p class="hero-desc">
+      Dr. Nnamdi C. Dike, DO is the leading and most sought-after neurologist
+      in the Dallas-Fort Worth Metroplex — delivering expert, compassionate
+      care from two premier locations.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-red" onclick="openModal()">→ Request Appointment</button>
+      <a href="tel:2144078580" class="btn-white-outline">📞 214-407-8580</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-deco-num">#1</div>
+    <div class="hero-stat-stack">
+      <div class="hero-stat-row">
+        <div class="hero-stat-num">4.81</div>
+        <div class="hero-stat-info">
+          <div class="hero-stat-label">★ Patient Rating</div>
+          <div class="hero-stat-sub">32 verified reviews · consistently 5-star</div>
+        </div>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat-num">8+</div>
+        <div class="hero-stat-info">
+          <div class="hero-stat-label">Neurological Specialties</div>
+          <div class="hero-stat-sub">Migraines · MS · Epilepsy · Stroke · Neuropathy & more</div>
+        </div>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-info">
+          <div class="hero-stat-label">DFW Locations</div>
+          <div class="hero-stat-sub">Carrollton · Frisco — serving all of DFW</div>
+        </div>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat-num">DO</div>
+        <div class="hero-stat-info">
+          <div class="hero-stat-label">Board-Certified</div>
+          <div class="hero-stat-sub">Doctor of Osteopathic Medicine · Neurology</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner" id="marquee-inner"></div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-top">
+    <div>
+      <div class="services-label">Our Specialties</div>
+      <div class="services-h2">WHAT WE<br>TREAT</div>
+    </div>
+    <p class="services-desc">
+      From complex neurological disorders to spine-related conditions,
+      Dr. Dike offers in-office diagnostics and the most advanced treatments available in DFW.
+    </p>
+  </div>
+  <div class="services-grid" id="services-grid"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="about-label">The Doctor</div>
+    <div class="about-h2">DFW'S<br><span>LEADING</span><br>NEUROLOGIST</div>
+    <p class="about-desc">
+      Dr. Nnamdi C. Dike, DO is a Doctor of Osteopathic Medicine specializing in neurology.
+      He is widely recognized as the busiest and most trusted neurologist in the Dallas-Fort Worth
+      Metroplex, known for his thoroughness, compassion, and ability to diagnose conditions
+      that others have missed. His patients consistently describe life-changing outcomes.
+    </p>
+    <div class="about-facts">
+      <div class="about-fact"><div class="num">4.81★</div><div class="lbl">Patient Rating</div></div>
+      <div class="about-fact"><div class="num">2</div><div class="lbl">DFW Locations</div></div>
+      <div class="about-fact"><div class="num">DO</div><div class="lbl">Osteopathic Medicine</div></div>
+      <div class="about-fact"><div class="num">8+</div><div class="lbl">Specialties</div></div>
+    </div>
+  </div>
+  <div class="about-right-card">
+    <h3>Dr. Nnamdi C. Dike</h3>
+    <div class="cred">DO · Neurologist · Board Certified · DFW's #1</div>
+    <div class="about-quote-card">
+      <p>"We believe every patient deserves heartfelt support, an honest conversation, and expert medical care using today's most advanced treatments."</p>
+    </div>
+    <div class="about-staff-list">
+      <div class="about-staff-item"><div class="staff-dot"></div><div><div class="staff-name">Kaitlyn</div><div class="staff-role">Nurse Practitioner</div></div></div>
+      <div class="about-staff-item"><div class="staff-dot"></div><div><div class="staff-name">Shervonha</div><div class="staff-role">Office Manager</div></div></div>
+      <div class="about-staff-item"><div class="staff-dot"></div><div><div class="staff-name">Alexis</div><div class="staff-role">Front Desk</div></div></div>
+      <div class="about-staff-item"><div class="staff-dot"></div><div><div class="staff-name">Leah, Tommy, Derrick</div><div class="staff-role">Clinical Staff</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-top">
+    <div>
+      <div class="reviews-label">Patient Stories</div>
+      <div class="reviews-h2">WHAT<br>PATIENTS SAY</div>
+    </div>
+    <div class="reviews-rating">
+      <div class="score">4.81</div>
+      <div class="out">out of 5.0</div>
+      <div class="stars">★★★★★</div>
+    </div>
+  </div>
+  <div class="reviews-grid" id="reviews-grid"></div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>READY TO SEE<br><span>DFW'S BEST</span><br>NEUROLOGIST?</h2>
+  <div class="cta-banner-actions">
+    <button class="btn-white" onclick="openModal()">→ Book Appointment</button>
+    <a href="tel:2144078580" class="btn-outline-white">📞 Call Now</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <div class="contact-label">Find Us</div>
+    <div class="contact-h2">TWO DFW<br>LOCATIONS</div>
+    <div class="contact-items">
+      <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Carrollton</div><div class="contact-item-value">4323 N. Josey Ln, Suite 301<br>Carrollton, TX 75010</div></div></div>
+      <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Frisco</div><div class="contact-item-value">8350 Dallas Pkwy, Suite 300<br>Frisco, TX 75034</div></div></div>
+      <div class="contact-item"><div class="contact-item-icon">📞</div><div><div class="contact-item-label">Phone</div><div class="contact-item-value"><a href="tel:2144078580" style="color:inherit">214-407-8580</a></div></div></div>
+      <div class="contact-item"><div class="contact-item-icon">🏥</div><div><div class="contact-item-label">Insurance</div><div class="contact-item-value">Aetna · Cigna · UnitedHealthcare<br>Most major plans accepted</div></div></div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <h3>QUICK APPOINTMENT REQUEST</h3>
+    <div class="contact-form">
+      <div class="contact-form-row">
+        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+      </div>
+      <input type="tel" placeholder="Phone Number" />
+      <input type="email" placeholder="Email Address" />
+      <select>
+        <option value="">Select Service / Specialty</option>
+        <option>Migraine Treatment</option>
+        <option>Multiple Sclerosis</option>
+        <option>Neuropathy</option>
+        <option>Concussion Evaluation</option>
+        <option>Dementia / Memory</option>
+        <option>Seizures / Epilepsy</option>
+        <option>Stroke / TIA</option>
+        <option>Back Pain</option>
+        <option>General Neurology</option>
+      </select>
+      <button class="contact-submit" onclick="openModal()">SUBMIT REQUEST →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">AFFINITY NEUROCARE</div>
+  <div class="footer-copy">© 2025 Affinity Neurocare · Dr. Nnamdi C. Dike, DO</div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="tel:2144078580">214-407-8580</a>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" style="display:none" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-head-left">
+        <div class="modal-head-label">Affinity Neurocare · DFW's #1 Neurologist</div>
+        <div class="modal-head-title" id="modal-title">REQUEST APPOINTMENT</div>
+      </div>
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-progress"><div class="modal-progress-fill" id="progress-fill" style="width:25%"></div></div>
+    <div class="modal-steps-bar" id="steps-bar"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const SERVICES_DATA = [
+  { icon: '🧠', title: 'Migraine Treatment', desc: 'All four migraine phases treated with acute care, preventive therapy, and Botox for chronic cases (15+ episodes/month).' },
+  { icon: '🔬', title: 'Multiple Sclerosis', desc: 'Brain MRI, evoked potential testing, and disease-modifying therapies to slow progression and manage symptoms.' },
+  { icon: '⚡', title: 'Neuropathy', desc: 'Peripheral, proximal, and diabetic neuropathy treated with oral meds, nerve blocks, and TENS therapy.' },
+  { icon: '🛡️', title: 'Concussion Care', desc: 'Evaluation, skull fracture screening, and personalized post-concussion rehabilitation programs.' },
+  { icon: '🫀', title: 'Dementia & Memory', desc: "All major dementia types including Alzheimer's, Lewy body, vascular, and frontotemporal disorders." },
+  { icon: '🌩️', title: 'Seizures & Epilepsy', desc: 'Anti-seizure medications, vagus nerve stimulation, deep brain stimulation, and surgical options.' },
+  { icon: '🩺', title: 'Stroke & TIA', desc: 'Rapid assessment, ischemic and hemorrhagic stroke treatment, TIA evaluation, and prevention planning.' },
+  { icon: '🦴', title: 'Back Pain & Spine', desc: 'Herniated disc, stenosis, and degenerative disc disease treated from conservative to surgical approaches.' },
+];
+
+const REVIEWS_DATA = [
+  { name: 'Trin P.', date: 'Dec 2025', text: 'THE BEST Neurologist I have witnessed in my 35+ years in healthcare. Dr. Dike and his entire team made me feel like the only patient in the building.' },
+  { name: 'Patricia I.', date: 'Oct 2023', text: 'Best Neurologist in the DFW area, period. Dr. Dike takes the time to actually listen and explains everything clearly.' },
+  { name: 'Stephanie S.', date: 'Apr 2023', text: 'By far the best Neurologist in DFW. After years of misdiagnoses elsewhere, Dr. Dike identified my condition on the first visit.' },
+  { name: 'Billie B.', date: 'Jul 2025', text: 'Excellent experience with Dr. Dike, Kaitlyn and the whole staff. Always welcoming. I never feel rushed.' },
+  { name: 'Brian S.', date: 'May 2022', text: 'One of the most knowledgeable doctors I have ever seen. He explains my condition in terms I actually understand.' },
+  { name: 'Julissa V.', date: 'Mar 2022', text: 'Stroke patient here. The care I received from everyone at Affinity Neurocare is amazing. Dr. Dike walked me through my recovery step by step.' },
+];
+
+const MARQUEE_ITEMS = ['DFW\'s Leading Neurologist', 'Migraines', 'Multiple Sclerosis', 'Neuropathy', 'Concussion', 'Dementia', 'Epilepsy', 'Stroke', 'Back Pain', 'Carrollton · Frisco', '214-407-8580'];
+
+// Build services grid
+const sg = document.getElementById('services-grid');
+SERVICES_DATA.forEach((s, i) => {
+  sg.innerHTML += `<div class="service-cell"><div class="service-num">${String(i+1).padStart(2,'0')}</div><div class="service-icon-wrap">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p></div>`;
+});
+
+// Build reviews
+const rg = document.getElementById('reviews-grid');
+REVIEWS_DATA.forEach(r => {
+  rg.innerHTML += `<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"${r.text}"</p><div class="review-author"><div class="review-av">${r.name[0]}</div><div><div class="review-name">${r.name}</div><div class="review-date">${r.date}</div></div></div></div>`;
+});
+
+// Build marquee
+const mi = document.getElementById('marquee-inner');
+const items = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
+mi.innerHTML = items.map(t => `<span class="marquee-item"><span class="marquee-dot"></span>${t}</span>`).join('');
+
+// Modal logic
+let step = 0, submitted = false;
+let selService = null, selLocation = null, selDate = null, selTime = null;
+let form = { firstName:'', lastName:'', phone:'', email:'', insurance:'', isNew:'yes', notes:'' };
+
+const STEPS = ['Service', 'Date & Time', 'Your Info', 'Confirm'];
+const LOCS = [
+  { id:'carrollton', city:'Carrollton', addr:'4323 N. Josey Ln, Suite 301\nCarrollton, TX 75010' },
+  { id:'frisco', city:'Frisco', addr:'8350 Dallas Pkwy, Suite 300\nFrisco, TX 75034' },
+];
+const TIMES = ['8:00 AM','8:30 AM','9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM'];
+const UNAVAIL = [1,5,9,13];
+const DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let viewYear = new Date().getFullYear(), viewMonth = new Date().getMonth();
+
+function openModal() { step=0; submitted=false; document.getElementById('modal').style.display='flex'; render(); }
+function closeModal() { document.getElementById('modal').style.display='none'; }
+document.addEventListener('keydown', e => e.key==='Escape' && closeModal());
+
+function fmtDate(d) {
+  if (!d) return '—';
+  return d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+}
+
+function render() {
+  const fill = ((step+1)/4)*100;
+  document.getElementById('progress-fill').style.width = fill+'%';
+  const sb = document.getElementById('steps-bar');
+  sb.innerHTML = STEPS.map((s,i) => `<div class="modal-step-tab ${i===step?'active':i<step?'done':''}">${i<step?'✓ ':''} ${s}</div>`).join('');
+  if (submitted) { renderSuccess(); return; }
+  if (step===0) renderStep0();
+  else if (step===1) renderStep1();
+  else if (step===2) renderStep2();
+  else if (step===3) renderStep3();
+}
+
+function canNext() {
+  if (step===0) return !!selService;
+  if (step===1) return !!selLocation && !!selDate && !!selTime;
+  if (step===2) return form.firstName && form.lastName && form.phone && form.email;
+  return true;
+}
+
+function next() { if (!canNext()) return; if (step<3) { step++; render(); } else { submitted=true; render(); } }
+function back() { if (step>0) { step--; render(); } }
+
+function renderStep0() {
+  const body = document.getElementById('modal-body');
+  body.innerHTML = `<div class="modal-section-label">What brings you in?</div>
+  <div class="svc-grid">${SERVICES_DATA.map(s => `<div class="svc-opt${selService===s.title?' sel':''}" onclick="selService='${s.title}';render()"><span>${s.icon}</span>${s.title}</div>`).join('')}</div>
+  <div class="modal-footer-bar"><span></span><button class="btn-modal-next" onclick="next()" ${!canNext()?'disabled':''}>CONTINUE →</button></div>`;
+}
+
+function renderStep1() {
+  const today = new Date();
+  const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+  const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
+  let calCells = '';
+  DAYS.forEach(d => { calCells += `<div class="cal-day-name">${d}</div>`; });
+  for (let i=0;i<firstDay;i++) calCells += `<div class="cal-day empty"></div>`;
+  for (let d=1;d<=daysInMonth;d++) {
+    const dt = new Date(viewYear,viewMonth,d);
+    const past = dt < new Date(today.getFullYear(),today.getMonth(),today.getDate()) || dt.getDay()===0 || dt.getDay()===6;
+    const sel = selDate && selDate.getDate()===d && selDate.getMonth()===viewMonth && selDate.getFullYear()===viewYear;
+    const tod = today.getDate()===d && today.getMonth()===viewMonth && today.getFullYear()===viewYear;
+    calCells += `<div class="cal-day${sel?' sel':''}${tod&&!sel?' today':''}${past?' past':''}" onclick="${!past?`selDate=new Date(${viewYear},${viewMonth},${d});render()`:''}">${d}</div>`;
+  }
+  const body = document.getElementById('modal-body');
+  body.innerHTML = `<div class="modal-section-label">Choose Location & Time</div>
+  <div class="loc-grid">${LOCS.map(l=>`<div class="loc-opt${selLocation===l.id?' sel':''}" onclick="selLocation='${l.id}';render()"><h4>📍 ${l.city}</h4><p style="white-space:pre-line">${l.addr}</p></div>`).join('')}</div>
+  <div class="cal-header">
+    <button class="cal-nav" onclick="if(viewMonth===0){viewMonth=11;viewYear--;}else{viewMonth--;}render()">‹</button>
+    <h4>${MONTHS[viewMonth]} ${viewYear}</h4>
+    <button class="cal-nav" onclick="if(viewMonth===11){viewMonth=0;viewYear++;}else{viewMonth++;}render()">›</button>
+  </div>
+  <div class="cal-grid">${calCells}</div>
+  ${selDate?`<div class="modal-section-label" style="font-size:1rem;margin-bottom:12px">Available Times</div>
+  <div class="time-grid">${TIMES.map((t,i)=>`<div class="time-opt${selTime===t?' sel':''}${UNAVAIL.includes(i)?' unavail':''}" onclick="${!UNAVAIL.includes(i)?`selTime='${t}';render()`:''}">${t}</div>`).join('')}</div>`:''}
+  <div class="modal-footer-bar"><button class="btn-back-modal" onclick="back()">← BACK</button><button class="btn-modal-next" onclick="next()" ${!canNext()?'disabled':''}>CONTINUE →</button></div>`;
+}
+
+function renderStep2() {
+  const body = document.getElementById('modal-body');
+  body.innerHTML = `<div class="modal-section-label">Your Information</div>
+  <div class="form-row">
+    <div class="form-group"><label>First Name *</label><input type="text" value="${form.firstName}" placeholder="Jane" oninput="form.firstName=this.value" /></div>
+    <div class="form-group"><label>Last Name *</label><input type="text" value="${form.lastName}" placeholder="Smith" oninput="form.lastName=this.value" /></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Phone *</label><input type="tel" value="${form.phone}" placeholder="(214) 555-0123" oninput="form.phone=this.value" /></div>
+    <div class="form-group"><label>Email *</label><input type="email" value="${form.email}" placeholder="jane@email.com" oninput="form.email=this.value" /></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Insurance</label><select onchange="form.insurance=this.value"><option value="">Select...</option><option>Aetna</option><option>Cigna</option><option>UnitedHealthcare</option><option>Medicare</option><option>Other / Self-Pay</option></select></div>
+    <div class="form-group"><label>New Patient?</label><select onchange="form.isNew=this.value"><option value="yes">Yes, new patient</option><option value="no">Existing patient</option></select></div>
+  </div>
+  <div class="form-group"><label>Notes (optional)</label><textarea placeholder="Describe your symptoms..." oninput="form.notes=this.value">${form.notes}</textarea></div>
+  <div class="modal-footer-bar"><button class="btn-back-modal" onclick="back()">← BACK</button><button class="btn-modal-next" onclick="next()" ${!canNext()?'disabled':''}>CONTINUE →</button></div>`;
+}
+
+function renderStep3() {
+  const loc = LOCS.find(l => l.id===selLocation);
+  const body = document.getElementById('modal-body');
+  body.innerHTML = `<div class="modal-section-label">Review & Confirm</div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:20px">Review your details. Our team will contact you to confirm the appointment time.</p>
+  <div class="confirm-table">
+    <div class="confirm-row-item"><span class="confirm-icon">🧠</span><span class="confirm-label">Service</span><span class="confirm-val">${selService}</span></div>
+    <div class="confirm-row-item"><span class="confirm-icon">📍</span><span class="confirm-label">Location</span><span class="confirm-val">${loc?.city} Office</span></div>
+    <div class="confirm-row-item"><span class="confirm-icon">🗓️</span><span class="confirm-label">Date</span><span class="confirm-val">${fmtDate(selDate)}</span></div>
+    <div class="confirm-row-item"><span class="confirm-icon">🕐</span><span class="confirm-label">Time</span><span class="confirm-val">${selTime}</span></div>
+    <div class="confirm-row-item"><span class="confirm-icon">👤</span><span class="confirm-label">Patient</span><span class="confirm-val">${form.firstName} ${form.lastName}</span></div>
+    <div class="confirm-row-item"><span class="confirm-icon">📞</span><span class="confirm-label">Phone</span><span class="confirm-val">${form.phone}</span></div>
+    <div class="confirm-row-item"><span class="confirm-icon">📧</span><span class="confirm-label">Email</span><span class="confirm-val">${form.email}</span></div>
+    ${form.insurance?`<div class="confirm-row-item"><span class="confirm-icon">🏥</span><span class="confirm-label">Insurance</span><span class="confirm-val">${form.insurance}</span></div>`:''}
+  </div>
+  <p style="font-size:0.72rem;color:var(--muted);line-height:1.6;margin-bottom:20px">By submitting, you consent to being contacted by Affinity Neurocare to confirm your appointment. This is a request — your appointment is not confirmed until our office reaches out.</p>
+  <div class="modal-footer-bar"><button class="btn-back-modal" onclick="back()">← BACK</button><button class="btn-modal-next" onclick="next()">SUBMIT REQUEST →</button></div>`;
+}
+
+function renderSuccess() {
+  const loc = LOCS.find(l => l.id===selLocation);
+  document.getElementById('modal-body').innerHTML = `<div class="success-box">
+    <div class="success-icon">✅</div>
+    <h3>REQUEST SENT!</h3>
+    <p>Thank you, <strong>${form.firstName}</strong>! We received your appointment request for <strong>${selService}</strong>. Our team will contact you at <strong>${form.phone}</strong> within one business day.</p>
+    <div class="confirm-table" style="text-align:left;max-width:400px;margin:0 auto 20px">
+      <div class="confirm-row-item"><span class="confirm-icon">🗓️</span><span class="confirm-label">Date</span><span class="confirm-val">${fmtDate(selDate)}</span></div>
+      <div class="confirm-row-item"><span class="confirm-icon">📍</span><span class="confirm-label">Location</span><span class="confirm-val">${loc?.city}</span></div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--muted)">Questions? Call <a href="tel:2144078580" style="color:var(--red);font-weight:700">214-407-8580</a></p>
+    <button class="btn-red" onclick="closeModal()" style="margin-top:16px">CLOSE</button>
+  </div>`;
+  document.getElementById('steps-bar').innerHTML = '';
+  document.getElementById('progress-fill').style.width = '100%';
+}
+</script>
+</body>
+</html>

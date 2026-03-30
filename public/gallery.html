@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Affinity Neurocare — Choose Your Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #0a0a12;
+  color: white;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Background stars */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(120,80,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(191,140,68,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  padding: 72px 24px 60px;
+  position: relative;
+}
+.header-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px; padding: 8px 20px; margin-bottom: 28px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.header-badge-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+.page-header h1 {
+  font-family: 'Cormorant Garant', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400; line-height: 1.1; letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.page-header h1 em { font-style: italic; color: #BF8C44; }
+.page-header p {
+  font-size: 1.05rem; color: rgba(255,255,255,0.5); line-height: 1.75;
+  max-width: 560px; margin: 0 auto;
+}
+
+/* Design cards */
+.designs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 28px;
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 28px 80px;
+}
+
+.design-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px; overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.design-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+
+/* Browser mockup */
+.mockup {
+  position: relative;
+  background: #1a1a2e;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.mockup-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mockup-dot:nth-child(1) { background: #FF5F57; }
+.mockup-dot:nth-child(2) { background: #FEBC2E; }
+.mockup-dot:nth-child(3) { background: #28C840; }
+.mockup-url {
+  flex: 1; background: rgba(255,255,255,0.06); border-radius: 4px;
+  padding: 5px 10px; font-size: 0.72rem; color: rgba(255,255,255,0.3);
+  text-align: center; letter-spacing: 0.03em; max-width: 260px; margin: 0 auto;
+}
+.mockup-preview {
+  height: 280px; overflow: hidden; position: relative;
+}
+.mockup-preview iframe {
+  width: 200%;
+  height: 200%;
+  border: none;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
+.mockup-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(26,26,46,0.8) 100%);
+}
+
+/* Design visual fallback (no iframe) */
+.design-visual {
+  height: 280px; position: relative; overflow: hidden;
+}
+
+/* DESIGN A — Dark Navy Gold */
+.dv-a {
+  background: linear-gradient(135deg, #0B1D3A 0%, #122244 50%, #0f2040 100%);
+}
+.dv-a-hero {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  padding: 24px;
+}
+.dv-a-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 28px;
+}
+.dv-a-logo { display: flex; align-items: center; gap: 8px; }
+.dv-a-logo-mark { width: 28px; height: 28px; background: #BF8C44; border-radius: 6px; }
+.dv-a-logo-text { font-family: 'Cormorant Garant', serif; font-size: 0.85rem; font-weight: 600; color: white; }
+.dv-a-cta { background: #BF8C44; color: white; padding: 6px 14px; border-radius: 4px; font-size: 0.68rem; font-weight: 600; }
+.dv-a-h1 { font-family: 'Cormorant Garant', serif; font-size: 2.2rem; font-weight: 400; color: white; line-height: 1.1; margin-bottom: 12px; }
+.dv-a-h1 em { font-style: italic; color: #D4A96A; }
+.dv-a-sub { font-size: 0.72rem; color: rgba(255,255,255,0.5); line-height: 1.6; max-width: 220px; margin-bottom: 16px; }
+.dv-a-btn { background: #BF8C44; color: white; padding: 8px 16px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+.dv-a-grid-bg {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.dv-a-float {
+  position: absolute; right: 20px; top: 60px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 10px 14px; backdrop-filter: blur(8px);
+}
+.dv-a-float .n { font-family: 'Cormorant Garant', serif; font-size: 1.4rem; font-weight: 600; color: #D4A96A; line-height: 1; }
+.dv-a-float .l { font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.dv-a-float-2 { top: 130px; right: 24px; }
+.dv-a-float-3 { top: 200px; right: 30px; }
+
+/* DESIGN B — Bold Editorial */
+.dv-b { background: #0A0A0A; }
+.dv-b-hero { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.dv-b-left { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+.dv-b-badge { background: #C8102E; color: white; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 12px; align-self: flex-start; }
+.dv-b-num { font-family: 'Impact', 'Bebas Neue', sans-serif; font-size: 5rem; line-height: 0.85; color: white; }
+.dv-b-num span { color: #C8102E; }
+.dv-b-title { font-family: 'Impact', 'Bebas Neue', sans-serif; font-size: 1.6rem; color: white; letter-spacing: 0.04em; line-height: 1; margin-top: 4px; margin-bottom: 12px; }
+.dv-b-btn { background: #C8102E; color: white; padding: 8px 14px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; align-self: flex-start; }
+.dv-b-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,0.06); }
+.dv-b-stat { padding: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); flex: 1; }
+.dv-b-stat .n { font-family: 'Impact', 'Bebas Neue', sans-serif; font-size: 2rem; color: #C8102E; line-height: 1; }
+.dv-b-stat .l { font-size: 0.62rem; color: rgba(255,255,255,0.5); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+.dv-b-stat .s { font-size: 0.6rem; color: rgba(255,255,255,0.3); margin-top: 2px; }
+.dv-b-red-strip { background: #C8102E; padding: 6px 14px; margin-top: auto; }
+.dv-b-red-strip p { font-size: 0.62rem; color: white; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* DESIGN C — Elegant Teal */
+.dv-c { background: linear-gradient(135deg, #0A6E6E 0%, #0D8A8A 50%, #075858 100%); }
+.dv-c-hero { position: absolute; inset: 0; padding: 20px; }
+.dv-c-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.dv-c-logo { display: flex; align-items: center; gap: 6px; }
+.dv-c-logo-mark { width: 26px; height: 26px; background: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+.dv-c-logo-text { font-family: 'Cormorant Garant', serif; font-size: 0.85rem; font-weight: 600; color: white; }
+.dv-c-cta { background: white; color: #0A6E6E; padding: 6px 14px; border-radius: 6px; font-size: 0.68rem; font-weight: 700; }
+.dv-c-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; padding: 5px 12px; margin-bottom: 12px; font-size: 0.62rem; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: 0.06em; }
+.dv-c-dot { width: 5px; height: 5px; background: #4ADEAE; border-radius: 50%; }
+.dv-c-h1 { font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 400; color: white; line-height: 1.15; margin-bottom: 10px; }
+.dv-c-h1 em { font-style: italic; color: #7DD3D3; }
+.dv-c-sub { font-size: 0.7rem; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 200px; margin-bottom: 14px; }
+.dv-c-btn { background: white; color: #0A6E6E; padding: 8px 16px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+.dv-c-card {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 14px 16px;
+  text-align: center; width: 110px;
+}
+.dv-c-card .av { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garant', serif; font-size: 1rem; font-weight: 600; color: white; margin: 0 auto 8px; border: 2px solid rgba(255,255,255,0.2); }
+.dv-c-card .dn { font-family: 'Cormorant Garant', serif; font-size: 0.78rem; font-weight: 500; color: white; margin-bottom: 2px; }
+.dv-c-card .dt { font-size: 0.58rem; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; margin-bottom: 10px; }
+.dv-c-card .stars { color: #FCD34D; font-size: 0.75rem; letter-spacing: 1px; }
+.dv-c-card .score { font-family: 'Cormorant Garant', serif; font-size: 1rem; font-weight: 600; color: white; }
+
+/* Card body */
+.card-body {
+  padding: 24px 26px 28px;
+}
+.card-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 10px;
+}
+.card-tag-dot { width: 6px; height: 6px; border-radius: 50%; }
+.design-a-color { background: #BF8C44; }
+.design-b-color { background: #C8102E; }
+.design-c-color { background: #0A6E6E; }
+.card-title {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 1.5rem; font-weight: 600; color: white;
+  margin-bottom: 8px; line-height: 1.2;
+}
+.card-desc {
+  font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.65;
+  margin-bottom: 20px;
+}
+.card-features {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+}
+.feature-pill {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px; padding: 4px 12px;
+  font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.5);
+}
+.card-actions { display: flex; gap: 10px; }
+.btn-preview {
+  flex: 1; padding: 11px 16px; border-radius: 8px;
+  font-size: 0.82rem; font-weight: 700; text-align: center;
+  transition: all 0.2s; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  text-decoration: none;
+}
+.btn-a { background: #BF8C44; color: white; }
+.btn-a:hover { background: #D4A96A; transform: translateY(-1px); }
+.btn-b { background: #C8102E; color: white; }
+.btn-b:hover { background: #a00d26; transform: translateY(-1px); }
+.btn-c { background: #0A6E6E; color: white; }
+.btn-c:hover { background: #0D8A8A; transform: translateY(-1px); }
+.btn-ghost-card {
+  padding: 11px 16px; border-radius: 8px;
+  font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.1); background: transparent;
+  transition: all 0.2s; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-ghost-card:hover { border-color: rgba(255,255,255,0.3); color: white; }
+
+/* Recommended badge */
+.recommended-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: #BF8C44; color: white;
+  font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px; z-index: 10;
+  animation: shimmer 3s ease infinite;
+}
+@keyframes shimmer {
+  0%,100% { box-shadow: 0 0 0 0 rgba(191,140,68,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(191,140,68,0); }
+}
+
+/* Footer */
+.gallery-footer {
+  text-align: center; padding: 0 24px 60px;
+}
+.gallery-footer p { font-size: 0.88rem; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+.gallery-footer a {
+  font-size: 0.88rem; color: rgba(255,255,255,0.4);
+  border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.gallery-footer a:hover { color: rgba(255,255,255,0.8); }
+
+/* Divider */
+.divider {
+  width: 60px; height: 1px; background: rgba(255,255,255,0.1);
+  margin: 0 auto 40px;
+}
+
+@media(max-width:768px) {
+  .designs-grid { grid-template-columns: 1fr; padding: 0 16px 60px; }
+  .dv-b-hero { grid-template-columns: 1fr; }
+  .dv-b-right { display: none; }
+  .dv-c-card { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-badge">
+    <div class="header-badge-dot"></div>
+    Affinity Neurocare · Design Selection
+  </div>
+  <h1>Choose Your <em>Favorite</em><br/>Website Design</h1>
+  <p>
+    Three distinct design concepts crafted exclusively for Dr. Nnamdi C. Dike, DO —
+    DFW's leading and busiest neurologist. Preview each design, then select the one that
+    best represents Affinity Neurocare.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<div class="designs-grid">
+
+  <!-- DESIGN A -->
+  <div class="design-card" style="position:relative">
+    <div class="recommended-badge">⭐ Recommended</div>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
+        <div class="mockup-url">affinityneurocare.com</div>
+      </div>
+      <div class="design-visual dv-a">
+        <div class="dv-a-grid-bg"></div>
+        <div class="dv-a-hero">
+          <div class="dv-a-nav">
+            <div class="dv-a-logo">
+              <div class="dv-a-logo-mark"></div>
+              <div class="dv-a-logo-text">Affinity Neurocare</div>
+            </div>
+            <div class="dv-a-cta">Book Appointment</div>
+          </div>
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#BF8C44;margin-bottom:8px;display:flex;align-items:center;gap:6px"><span style="width:20px;height:1px;background:#BF8C44;display:inline-block"></span>BOARD-CERTIFIED · DFW TEXAS</div>
+          <div class="dv-a-h1">Expert Care for<br/>Your <em>Neurological</em><br/>Health</div>
+          <div class="dv-a-sub">Led by Dr. Nnamdi C. Dike, DO — DFW's leading and most trusted neurologist.</div>
+          <div class="dv-a-btn">📅 Request Appointment</div>
+        </div>
+        <div class="dv-a-float" style="right:20px;top:80px;animation:float1 5s ease-in-out infinite">
+          <div class="n">4.81★</div><div class="l">Patient Rating</div>
+        </div>
+        <div class="dv-a-float" style="right:30px;top:160px;animation:float2 5s ease-in-out infinite">
+          <div class="n">#1</div><div class="l">DFW Neurologist</div>
+        </div>
+        <div class="dv-a-float" style="right:16px;top:220px;animation:float3 5s ease-in-out infinite">
+          <div class="n">8+</div><div class="l">Specialties</div>
+        </div>
+        <style>
+          @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+          @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+          @keyframes float3{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+        </style>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag"><div class="card-tag-dot design-a-color"></div>Design A</div>
+      <div class="card-title">Dark Navy & Gold<br/>Luxury Medical</div>
+      <div class="card-desc">
+        Premium, sophisticated aesthetic with deep navy and warm gold accents.
+        Cormorant Garant serif typography. Floating stat cards, grid patterns,
+        animated scroll reveals. Built as a full React app.
+      </div>
+      <div class="card-features">
+        <span class="feature-pill">✦ Full React App</span>
+        <span class="feature-pill">✦ Navy & Gold</span>
+        <span class="feature-pill">✦ Serif Typography</span>
+        <span class="feature-pill">✦ Animated Cards</span>
+        <span class="feature-pill">✦ 4-Step Scheduling</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-preview btn-a" href="/" target="_blank">Open Design A →</a>
+        <a class="btn-ghost-card" href="/" target="_blank">Preview</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN B -->
+  <div class="design-card">
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
+        <div class="mockup-url">affinityneurocare.com</div>
+      </div>
+      <div class="design-visual dv-b">
+        <div class="dv-b-hero">
+          <div class="dv-b-left">
+            <div class="dv-b-badge">★ DFW's #1 Neurologist</div>
+            <div class="dv-b-num">#<span>1</span></div>
+            <div class="dv-b-title">NEUROLOGIST<br/>IN DFW</div>
+            <div style="font-size:0.62rem;color:rgba(255,255,255,0.45);border-left:2px solid #C8102E;padding-left:10px;margin-bottom:12px;line-height:1.6">Dr. Nnamdi C. Dike, DO — the most sought-after neurologist in the Dallas-Fort Worth Metroplex.</div>
+            <div class="dv-b-btn">→ REQUEST APPOINTMENT</div>
+          </div>
+          <div class="dv-b-right">
+            <div class="dv-b-stat"><div class="n">4.81</div><div class="l">★ Patient Rating</div><div class="s">32 verified reviews</div></div>
+            <div class="dv-b-stat"><div class="n">8+</div><div class="l">Specialties</div><div class="s">Full neurology spectrum</div></div>
+            <div class="dv-b-stat"><div class="n">2</div><div class="l">DFW Locations</div><div class="s">Carrollton · Frisco</div></div>
+            <div class="dv-b-red-strip"><p>DFW'S BUSIEST NEUROLOGIST · 214-407-8580</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag"><div class="card-tag-dot design-b-color"></div>Design B</div>
+      <div class="card-title">Bold Editorial<br/>Red & Black</div>
+      <div class="card-desc">
+        Commanding, high-impact editorial style. Stark black background with
+        crimson red accents. Bold display typography. Grid-based service layout.
+        Makes an immediate powerful impression.
+      </div>
+      <div class="card-features">
+        <span class="feature-pill">✦ Black & Red</span>
+        <span class="feature-pill">✦ Bold Typography</span>
+        <span class="feature-pill">✦ Editorial Grid</span>
+        <span class="feature-pill">✦ Stat Panels</span>
+        <span class="feature-pill">✦ 4-Step Scheduling</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-preview btn-b" href="design-bold.html" target="_blank">Open Design B →</a>
+        <a class="btn-ghost-card" href="design-bold.html" target="_blank">Preview</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN C -->
+  <div class="design-card">
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
+        <div class="mockup-url">affinityneurocare.com</div>
+      </div>
+      <div class="design-visual dv-c">
+        <div class="dv-c-hero">
+          <div class="dv-c-nav">
+            <div class="dv-c-logo">
+              <div class="dv-c-logo-mark">🧠</div>
+              <div class="dv-c-logo-text">Affinity Neurocare</div>
+            </div>
+            <div class="dv-c-cta">Book Appointment</div>
+          </div>
+          <div class="dv-c-badge"><div class="dv-c-dot"></div>DFW's Leading &amp; Busiest Neurologist</div>
+          <div class="dv-c-h1">Exceptional Care for<br/>Your <em>Neurological</em><br/>Health</div>
+          <div class="dv-c-sub">Dr. Nnamdi C. Dike, DO — the most trusted and sought-after neurologist in DFW.</div>
+          <div class="dv-c-btn">📅 Request Appointment</div>
+        </div>
+        <div class="dv-c-card">
+          <div class="av">ND</div>
+          <div class="dn">Dr. N. Dike</div>
+          <div class="dt">DO · NEUROLOGIST</div>
+          <div class="stars">★★★★★</div>
+          <div class="score">4.81</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag"><div class="card-tag-dot design-c-color"></div>Design C</div>
+      <div class="card-title">Elegant Clinical<br/>Teal & White</div>
+      <div class="card-desc">
+        Refined, clean medical aesthetic with deep teal and white. Playfair Display
+        serif headings, clean Inter body text. Bright, trustworthy feel.
+        Doctor profile card in hero, smooth testimonial carousel.
+      </div>
+      <div class="card-features">
+        <span class="feature-pill">✦ Teal & White</span>
+        <span class="feature-pill">✦ Doctor Card</span>
+        <span class="feature-pill">✦ Clean & Clinical</span>
+        <span class="feature-pill">✦ Playfair Serif</span>
+        <span class="feature-pill">✦ 4-Step Scheduling</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-preview btn-c" href="design-elegant.html" target="_blank">Open Design C →</a>
+        <a class="btn-ghost-card" href="design-elegant.html" target="_blank">Preview</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="gallery-footer">
+  <p>All three designs include full appointment scheduling, real patient content, and responsive mobile layouts.</p>
+  <a href="tel:2144078580">Questions? Call 214-407-8580</a>
+</div>
+
+</body>
+</html>
