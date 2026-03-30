@@ -11,5 +11,11 @@ services:
         value: no-cache
     routes:
       - type: rewrite
-        source: /*
-        destination: /index.html
+        source: /design-bold.html
+        destination: /design-bold.html
+      - type: rewrite
+        source: /design-elegant.html
+        destination: /design-elegant.html
+      - type: rewrite
+        source: /gallery.html
+        destination: /gallery.html
