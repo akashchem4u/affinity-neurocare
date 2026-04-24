@@ -397,19 +397,6 @@ button { cursor: pointer; font-family: 'Outfit', sans-serif; border: none; }
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.2rem; letter-spacing: 0.04em; color: white; margin-bottom: 24px;
 }
-.contact-form { display: flex; flex-direction: column; gap: 16px; }
-.contact-form input, .contact-form select {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 0; padding: 14px 18px;
-  font-family: 'Outfit', sans-serif; font-size: 0.9rem;
-  color: white; outline: none; transition: border-color 0.2s;
-}
-.contact-form input::placeholder { color: rgba(255,255,255,0.3); }
-.contact-form input:focus, .contact-form select:focus { border-color: var(--red); }
-.contact-form select { color: rgba(255,255,255,0.6); }
-.contact-form select option { background: #1a1a1a; color: white; }
-.contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .contact-submit {
   background: var(--red); color: white;
   font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
@@ -764,28 +751,9 @@ footer {
     </div>
   </div>
   <div class="contact-right">
-    <h3>QUICK APPOINTMENT REQUEST</h3>
-    <div class="contact-form">
-      <div class="contact-form-row">
-        <input type="text" placeholder="First Name" />
-        <input type="text" placeholder="Last Name" />
-      </div>
-      <input type="tel" placeholder="Phone Number" />
-      <input type="email" placeholder="Email Address" />
-      <select>
-        <option value="">Select Service / Specialty</option>
-        <option>Migraine Treatment</option>
-        <option>Multiple Sclerosis</option>
-        <option>Neuropathy</option>
-        <option>Concussion Evaluation</option>
-        <option>Dementia / Memory</option>
-        <option>Seizures / Epilepsy</option>
-        <option>Stroke / TIA</option>
-        <option>Back Pain</option>
-        <option>General Neurology</option>
-      </select>
-      <button class="contact-submit" onclick="openModal()">SUBMIT REQUEST →</button>
-    </div>
+    <h3>SCHEDULE AN APPOINTMENT</h3>
+    <p style="margin-bottom:24px;color:var(--gray);line-height:1.6">Use our online scheduling tool to request an appointment at either of our DFW locations. Our team will confirm within one business day.</p>
+    <button class="contact-submit" onclick="openModal()">REQUEST APPOINTMENT →</button>
   </div>
 </section>
 

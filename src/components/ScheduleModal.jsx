@@ -181,8 +181,7 @@ export default function ScheduleModal({ onClose }) {
               <p>
                 Thank you, <strong>{form.firstName}</strong>! We've received your request for a{' '}
                 <strong>{selectedService}</strong> appointment. Our team will contact you at{' '}
-                <strong>{form.phone}</strong> or <strong>{form.email}</strong> within one business day
-                to confirm your appointment.
+                <strong>{form.phone}</strong> within one business day to confirm your appointment.
               </p>
               <div className="confirm-box" style={{ textAlign: 'left' }}>
                 <div className="confirm-row">
@@ -437,7 +436,7 @@ export default function ScheduleModal({ onClose }) {
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
                     By submitting, you consent to being contacted by Affinity Neurocare to confirm
                     your appointment. This is a request only — your appointment is not confirmed until
-                    you receive a call or email from our office.
+                    you receive a call from our office.
                   </p>
                 </>
               )}
