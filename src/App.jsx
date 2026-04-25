@@ -5,6 +5,7 @@ import Services from './components/Services'
 import About from './components/About'
 import Testimonials from './components/Testimonials'
 import PatientResources from './components/PatientResources'
+import CryptoWallet from './components/CryptoWallet'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScheduleModal from './components/ScheduleModal'
@@ -21,6 +22,7 @@ export default function App() {
         <About />
         <Testimonials />
         <PatientResources onSchedule={() => setScheduleOpen(true)} />
+        <CryptoWallet />
         <Contact />
       </main>
       <Footer onSchedule={() => setScheduleOpen(true)} />
